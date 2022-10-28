@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www/thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/estilo.css">
+    <style>
+        .tabla-nombre{
+            display: flex;
+            justify-content: center;
+        }
+
+        tr{
+            display: flex;
+            flex-direction: row;
+            column-gap: 2em;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <a th:href="@{/new}" class="btn btn-primary">Nuevo</a>
+    <table class="table">
+        <thead class="">
+        <tr>
+            <th>ID</th>
+            <th>NOMBRE</th>
+            <th>APELLIDO</th>
+            <th>CORREO</th>
+            <th>ACCIONES</th>
+        </tr>
+        </thead>
+        <tbody class="tbody">
+        <tr th:each="persona:${personas}">
+            <td th:text="${persona.id}"></td>
+            <td th:text="${persona.name}" class="tabla-nombre"></td>
+            <td th:text="${persona.apellido}" class="tabla-apellido"></td>
+            <td th:text="${persona.mail}" class="tabla-email"></td>
+            <td>
+                <a th:href="@{/editar/}+${persona.id}" class="btn btn-warning">Editar</a>
+                <a th:href="@{/eliminar/}+${persona.id}" class="btn btn-danger">Eliminar</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
