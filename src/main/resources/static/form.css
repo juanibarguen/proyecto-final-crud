@@ -46,7 +46,7 @@ body {
     height: 35px;
     border: 2px solid #FE9A8D;
     border-radius: 5px;
-    color: #fff;
+    color: #000;
 }
 
 .form-group > input::placeholder {
