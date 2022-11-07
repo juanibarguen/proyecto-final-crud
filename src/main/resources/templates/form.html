@@ -1,128 +1,43 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www/thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/asd.css">
-  <style>
-    * {
-      padding: 0;
-      margin: 0;
-      box-sizing: border-box;
-      font-family: 'Jost', sans-serif;
-    }
-
-    .card-header-titulo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1em;
-    }
-
-    .card-header-titulo > h2 {
-      color: #fff;
-      font-weight: 700;
-    }
-
-    .card-nuevo-usuario {
-      width: 300px;
-      background-color: #24303C;
-      padding: 1em 2em;
-    }
-    .card-body{
-      width: 100%;
-    }
-    .form-group {
-      width: 100%;
-    }
-
-    .form-group > input {
-      padding: 0;
-      margin: 0;
-      display: flex;
-      width: 100%;
-      height: 35px;
-      background: none;
-      border: 1px solid #1F52C5;
-      color: #fff;
-    }
-
-    .form-group > input::placeholder {
-      padding-left: .5em;
-    }
-
-    .card-body {
-      display: flex;
-      flex-direction: column;
-    }
-
-    #form-apellido {
-      margin: 1em 0;
-    }
-
-    #form-id {
-      display: none;
-    }
-
-    .card-footer {
-      margin: 1em 0;
-      width: 100%;
-    }
-
-    .card-footer > input {
-      width: 100%;
-      background: #1F52C5;
-      color: #fff;
-      border: none;
-      font-weight: 900;
-      padding: 5px 0;
-    }
-
-
-    .form{
-      display: flex;
-      justify-content: center;
-      margin: 0 auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/form.css}"/>
 </head>
 <body>
 <div class="contenedor">
-  <div class="">
-    <form class="form" th:action="@{/save}" th:object="${persona}" method="POST">
-      <div class="card-nuevo-usuario">
-        <div class="card-header-titulo">
-          <h2>Registrar usuario</h2>
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <!-- <label>ID</label> -->
-            <input th:field="*{id}" type="text" id="form-id" class="form-control"/>
-          </div>
-          <div class="form-group">
-            <!-- <label>NOMBRE</label> -->
-            <input th:field="*{name}" placeholder="Nombre" type="text" class="form-control"/>
-          </div>
-          <div class="form-group">
-            <!-- <label>APELLIDO</label> -->
-            <input th:field="*{apellido}" placeholder="Apellido" id="form-apellido" type="text" class="form-control"/>
-          </div>
-          <div class="form-group">
-            <!-- <label>CORREO</label> -->
-            <input th:field="*{mail}" placeholder="Correo Electronico" type="text" class="form-control"/>
-          </div>
-        </div>
-        <div class="card-footer">
-          <input type="submit" value="Guardar" class="btn btn-success">
-        </div>
-      </div>
-    </form>
-  </div>
+    <div class="">
+        <form class="form" th:action="@{/save}" th:object="${persona}" method="POST">
+            <div class="card-nuevo-usuario">
+                <div class="card-header-titulo">
+                    <h2>Registrar usuario</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <input th:field="*{id}" type="text" id="form-id" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input th:field="*{name}" placeholder="Nombre" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input th:field="*{apellido}" placeholder="Apellido" id="form-apellido" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <input th:field="*{mail}" placeholder="Correo Electronico" type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <input type="submit" value="Guardar" class="btn btn-success">
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 </body>
 </html>
